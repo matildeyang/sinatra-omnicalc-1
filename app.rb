@@ -5,14 +5,19 @@ get("/") do
   erb(:new_square)
 end
 
-get("/square/results") do
+get("/square/new") do
+  erb(:new_square)
 end 
 
-get("/square_root/results") do
+get("/square/results") do 
+  erb(:square_results)
+end
+
+get("/square_root/new") do
 end 
 
-get("/payment/results") do 
+get("/payment/new") do 
 end 
 
-get("/random/results") do 
+get("/random/new") do 
 end 
