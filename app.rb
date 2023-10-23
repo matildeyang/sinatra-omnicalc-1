@@ -26,7 +26,25 @@ get("/square_root/results") do
 end 
 
 get("/payment/new") do 
+  erb(:new_payment)
+end 
+
+get("/payment/results") do 
+  @apr = params.fetch("apr").to_f.round(4)
+  @principal = params.fetch("principal")
+  @year = params.fetch("year")
+
+  @n = @year.to_f * 12
+  @rate = @apr.to_f/100/12
+
+  @numerator = @rate * @principal.to_f
+  @denominator = 1 - (1 + @rate)**-@n
+
+  @payment = (@numerator/@denominator).round(2)
+  
+  erb(:payment_results)
 end 
 
 get("/random/new") do 
+  
 end 
